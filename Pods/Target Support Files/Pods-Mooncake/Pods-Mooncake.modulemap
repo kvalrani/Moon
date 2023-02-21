@@ -1,0 +1,6 @@
+framework module Pods_Mooncake {
+  umbrella header "Pods-Mooncake-umbrella.h"
+
+  export *
+  module * { export * }
+}

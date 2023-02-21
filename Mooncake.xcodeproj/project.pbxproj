@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F3BC22CF5F1E215EE7E2956 /* Pods_Mooncake.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6859B5E5966BA7852E19829B /* Pods_Mooncake.framework */; };
 		416C1D842998391F00BA7B10 /* OrderPlaced.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416C1D832998391F00BA7B10 /* OrderPlaced.swift */; };
 		416C1D862998437600BA7B10 /* RatingFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416C1D852998437600BA7B10 /* RatingFood.swift */; };
 		41C7CFB6299AD8FC002C26DE /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C7CFB5299AD8FC002C26DE /* CalendarView.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		40B8439D2A974FEC5DC3929A /* Pods-Mooncake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mooncake.debug.xcconfig"; path = "Target Support Files/Pods-Mooncake/Pods-Mooncake.debug.xcconfig"; sourceTree = "<group>"; };
 		416C1D832998391F00BA7B10 /* OrderPlaced.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPlaced.swift; sourceTree = "<group>"; };
 		416C1D852998437600BA7B10 /* RatingFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingFood.swift; sourceTree = "<group>"; };
 		41C7CFB5299AD8FC002C26DE /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
@@ -27,6 +29,8 @@
 		5F6FBD5B2992098E00F570B5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5F6FBD5D2992098F00F570B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F6FBD602992098F00F570B5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6859B5E5966BA7852E19829B /* Pods_Mooncake.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mooncake.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFD26DF3870992EA8A99E5D6 /* Pods-Mooncake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mooncake.release.xcconfig"; path = "Target Support Files/Pods-Mooncake/Pods-Mooncake.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,17 +38,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F3BC22CF5F1E215EE7E2956 /* Pods_Mooncake.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E10C696E0F83FA4679A4C07 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				40B8439D2A974FEC5DC3929A /* Pods-Mooncake.debug.xcconfig */,
+				BFD26DF3870992EA8A99E5D6 /* Pods-Mooncake.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		5F6FBD4D2992098E00F570B5 = {
 			isa = PBXGroup;
 			children = (
 				5F6FBD582992098E00F570B5 /* Mooncake */,
 				5F6FBD572992098E00F570B5 /* Products */,
+				4E10C696E0F83FA4679A4C07 /* Pods */,
+				6478EDFEFA4BE38DDB3721E9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +96,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		6478EDFEFA4BE38DDB3721E9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6859B5E5966BA7852E19829B /* Pods_Mooncake.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +111,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5F6FBD642992098F00F570B5 /* Build configuration list for PBXNativeTarget "Mooncake" */;
 			buildPhases = (
+				75C2544A3E2E0E0E71F33639 /* [CP] Check Pods Manifest.lock */,
 				5F6FBD522992098E00F570B5 /* Sources */,
 				5F6FBD532992098E00F570B5 /* Frameworks */,
 				5F6FBD542992098E00F570B5 /* Resources */,
+				32DA789BCA8EE4F56FB844B9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -143,6 +170,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		32DA789BCA8EE4F56FB844B9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mooncake/Pods-Mooncake-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mooncake/Pods-Mooncake-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mooncake/Pods-Mooncake-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		75C2544A3E2E0E0E71F33639 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Mooncake-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5F6FBD522992098E00F570B5 /* Sources */ = {
@@ -277,6 +346,7 @@
 		};
 		5F6FBD652992098F00F570B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40B8439D2A974FEC5DC3929A /* Pods-Mooncake.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -305,6 +375,7 @@
 		};
 		5F6FBD662992098F00F570B5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BFD26DF3870992EA8A99E5D6 /* Pods-Mooncake.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
