@@ -15,8 +15,9 @@ struct ForgotPasswordView: View {
     )
     
     var body: some View {
+        NavigationView {
             VStack(spacing: 16) {
-            
+                
                 InputTextFieldView(text: $viewModel.email,
                                    placeholder: "Email",
                                    keyboardType: .emailAddress,
@@ -30,6 +31,7 @@ struct ForgotPasswordView: View {
             .padding(.horizontal, 15)
             .navigationTitle("Reset Password")
             .applyClose()
+        }
     }
 }
 

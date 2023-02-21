@@ -39,22 +39,21 @@ struct LoginView: View {
                 }, label: {
                     Text("Forgot Password?")
                 })
-                .font(.system(size: 16, weight: .bold))
+                .font(.system(size: 16, weight: .bold)).foregroundColor(Color(red: 0.37, green: 0.69, blue: 0.46))
                 .sheet(isPresented: $showForgotPassword) {
                         ForgotPasswordView()
                 }
             }
             
             VStack(spacing: 16) {
-                
                 ButtonView(title: "Login") {
                     viewModel.login()
                 }
                 
                 ButtonView(title: "Register",
                            background: .clear,
-                           foreground: .blue,
-                           border: .blue) {
+                           foreground: (Color(red: 0.37, green: 0.69, blue: 0.46)),
+                           border: (Color(red: 0.37, green: 0.69, blue: 0.46))) {
                     showRegistration.toggle()
                 }
                 .sheet(isPresented: $showRegistration) {
@@ -105,7 +104,7 @@ struct ButtonView: View {
     private let cornerRadius: CGFloat = 10
     
     internal init(title: String,
-                  background: Color = .blue,
+                  background: Color = (Color(red: 0.37, green: 0.69, blue: 0.46)),
                   foreground: Color = .white,
                   border: Color = .clear,
                   handler: @escaping ButtonView.ActionHandler) {

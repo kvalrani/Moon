@@ -53,7 +53,9 @@ struct RegisterView: View {
                     }
                 }
                 
-                ButtonView(title: "Sign up") {
+                ButtonView(title: "Sign up", background: (Color(red: 0.37, green: 0.69, blue: 0.46)),
+                           foreground: .white,
+                           border: .white) {
                     viewModel.create()
                 }
             }
