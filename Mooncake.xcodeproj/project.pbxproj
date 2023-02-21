@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4100565829A45EA000947F26 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4100565729A45EA000947F26 /* Calendar.swift */; };
 		416C1D842998391F00BA7B10 /* OrderPlaced.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416C1D832998391F00BA7B10 /* OrderPlaced.swift */; };
 		416C1D862998437600BA7B10 /* RatingFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416C1D852998437600BA7B10 /* RatingFood.swift */; };
 		5F6FBD5A2992098E00F570B5 /* MooncakeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6FBD592992098E00F570B5 /* MooncakeApp.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4100565729A45EA000947F26 /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		416C1D832998391F00BA7B10 /* OrderPlaced.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPlaced.swift; sourceTree = "<group>"; };
 		416C1D852998437600BA7B10 /* RatingFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingFood.swift; sourceTree = "<group>"; };
 		5F6FBD562992098E00F570B5 /* Mooncake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mooncake.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,6 +123,7 @@
 				5F6FBD5B2992098E00F570B5 /* ContentView.swift */,
 				416C1D832998391F00BA7B10 /* OrderPlaced.swift */,
 				416C1D852998437600BA7B10 /* RatingFood.swift */,
+				4100565729A45EA000947F26 /* Calendar.swift */,
 				5F6FBD5D2992098F00F570B5 /* Assets.xcassets */,
 				B502A32329A3E24900DCDCD9 /* GoogleService-Info.plist */,
 				5F6FBD5F2992098F00F570B5 /* Preview Content */,
@@ -400,6 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				416C1D862998437600BA7B10 /* RatingFood.swift in Sources */,
+				4100565829A45EA000947F26 /* Calendar.swift in Sources */,
 				B5A0EC9B29A3EE7700D408A2 /* RegistrationViewModel.swift in Sources */,
 				B5A0ECA329A3EF1E00D408A2 /* ForgetPasswordView.swift in Sources */,
 				B5A0EC9929A3EE5200D408A2 /* RegisterView.swift in Sources */,
