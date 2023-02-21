@@ -10,6 +10,7 @@
 		416C1D842998391F00BA7B10 /* OrderPlaced.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416C1D832998391F00BA7B10 /* OrderPlaced.swift */; };
 		416C1D862998437600BA7B10 /* RatingFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416C1D852998437600BA7B10 /* RatingFood.swift */; };
 		41C7CFB6299AD8FC002C26DE /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C7CFB5299AD8FC002C26DE /* CalendarView.swift */; };
+		41D8C92229A3ED5400C818C0 /* BetterCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D8C92129A3ED5400C818C0 /* BetterCalendar.swift */; };
 		5F6FBD5A2992098E00F570B5 /* MooncakeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6FBD592992098E00F570B5 /* MooncakeApp.swift */; };
 		5F6FBD5C2992098E00F570B5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6FBD5B2992098E00F570B5 /* ContentView.swift */; };
 		5F6FBD5E2992098F00F570B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F6FBD5D2992098F00F570B5 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 		416C1D832998391F00BA7B10 /* OrderPlaced.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPlaced.swift; sourceTree = "<group>"; };
 		416C1D852998437600BA7B10 /* RatingFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingFood.swift; sourceTree = "<group>"; };
 		41C7CFB5299AD8FC002C26DE /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		41D8C92129A3ED5400C818C0 /* BetterCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterCalendar.swift; sourceTree = "<group>"; };
 		5F6FBD562992098E00F570B5 /* Mooncake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mooncake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F6FBD592992098E00F570B5 /* MooncakeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MooncakeApp.swift; sourceTree = "<group>"; };
 		5F6FBD5B2992098E00F570B5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				416C1D832998391F00BA7B10 /* OrderPlaced.swift */,
 				416C1D852998437600BA7B10 /* RatingFood.swift */,
 				41C7CFB5299AD8FC002C26DE /* CalendarView.swift */,
+				41D8C92129A3ED5400C818C0 /* BetterCalendar.swift */,
 				5F6FBD5D2992098F00F570B5 /* Assets.xcassets */,
 				5F6FBD5F2992098F00F570B5 /* Preview Content */,
 			);
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41C7CFB6299AD8FC002C26DE /* CalendarView.swift in Sources */,
+				41D8C92229A3ED5400C818C0 /* BetterCalendar.swift in Sources */,
 				416C1D862998437600BA7B10 /* RatingFood.swift in Sources */,
 				416C1D842998391F00BA7B10 /* OrderPlaced.swift in Sources */,
 				5F6FBD5C2992098E00F570B5 /* ContentView.swift in Sources */,
