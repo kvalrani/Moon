@@ -51,7 +51,6 @@
 				40B8439D2A974FEC5DC3929A /* Pods-Mooncake.debug.xcconfig */,
 				BFD26DF3870992EA8A99E5D6 /* Pods-Mooncake.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
