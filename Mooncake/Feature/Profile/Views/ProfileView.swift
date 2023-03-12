@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-struct HomeView: View {
+struct ProfileView: View {
     
     @EnvironmentObject var service: SessionServiceImpl
     
@@ -35,10 +35,10 @@ struct HomeView: View {
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
+struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            HomeView()
+            ProfileView()
                 .environmentObject(SessionServiceImpl())
         }
     }

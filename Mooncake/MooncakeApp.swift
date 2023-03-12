@@ -27,7 +27,7 @@ struct MooncakeApp: App {
             NavigationView {
                 switch sessionService.state {
                     case .loggedIn:
-                        HomeView()
+                        ProfileView()
                             .environmentObject(sessionService)
                     case .loggedOut:
                         LoginView()
