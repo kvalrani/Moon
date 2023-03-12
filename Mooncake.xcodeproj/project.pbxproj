@@ -13,6 +13,9 @@
 		5F6FBD5E2992098F00F570B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F6FBD5D2992098F00F570B5 /* Assets.xcassets */; };
 		5F6FBD612992098F00F570B5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F6FBD602992098F00F570B5 /* Preview Assets.xcassets */; };
 		5F8D34F429BE715E00A5644C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8D34F329BE715E00A5644C /* HomeView.swift */; };
+		5F8D34F629BE720A00A5644C /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8D34F529BE720A00A5644C /* PreferencesView.swift */; };
+		5F8D34F829BE723D00A5644C /* RecommendationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8D34F729BE723D00A5644C /* RecommendationView.swift */; };
+		5F8D34FA29BE729600A5644C /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8D34F929BE729600A5644C /* FeedbackView.swift */; };
 		B502A32429A3E24900DCDCD9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B502A32329A3E24900DCDCD9 /* GoogleService-Info.plist */; };
 		B502A32729A3E2F700DCDCD9 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B502A32629A3E2F700DCDCD9 /* FirebaseAnalytics */; };
 		B502A32929A3E2F700DCDCD9 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = B502A32829A3E2F700DCDCD9 /* FirebaseAppCheck */; };
@@ -53,6 +56,9 @@
 		5F6FBD5D2992098F00F570B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F6FBD602992098F00F570B5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5F8D34F329BE715E00A5644C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		5F8D34F529BE720A00A5644C /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
+		5F8D34F729BE723D00A5644C /* RecommendationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationView.swift; sourceTree = "<group>"; };
+		5F8D34F929BE729600A5644C /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
 		B502A32329A3E24900DCDCD9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B502A34B29A3E5A800DCDCD9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B502A34F29A3E6B400DCDCD9 /* TextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInput.swift; sourceTree = "<group>"; };
@@ -180,6 +186,7 @@
 		5F8D34E829BE6EAF00A5644C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5F8D34F529BE720A00A5644C /* PreferencesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -211,6 +218,7 @@
 		5F8D34EC29BE6F3400A5644C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5F8D34F729BE723D00A5644C /* RecommendationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -242,6 +250,7 @@
 		5F8D34F029BE6F6700A5644C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5F8D34F929BE729600A5644C /* FeedbackView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -527,6 +536,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F8D34F829BE723D00A5644C /* RecommendationView.swift in Sources */,
+				5F8D34FA29BE729600A5644C /* FeedbackView.swift in Sources */,
 				416C1D862998437600BA7B10 /* RatingFood.swift in Sources */,
 				B5A0EC9B29A3EE7700D408A2 /* RegistrationViewModel.swift in Sources */,
 				B5A0ECA329A3EF1E00D408A2 /* ForgetPasswordView.swift in Sources */,
@@ -540,6 +551,7 @@
 				B5A0EC9029A3EC8400D408A2 /* LoginViewModel.swift in Sources */,
 				B502A34C29A3E5A800DCDCD9 /* LoginView.swift in Sources */,
 				B5A0ECA529A3EF5000D408A2 /* ForgetPasswordViewModel.swift in Sources */,
+				5F8D34F629BE720A00A5644C /* PreferencesView.swift in Sources */,
 				5F6FBD5A2992098E00F570B5 /* MooncakeApp.swift in Sources */,
 				B5A0EC8D29A3EBE700D408A2 /* NavigationCloseViewModifer.swift in Sources */,
 				B5A0ECA729A3EF7900D408A2 /* ForgetPasswordService.swift in Sources */,
