@@ -11,27 +11,44 @@ struct RecommendationView: View {
     @EnvironmentObject var service: SessionServiceImpl
     
     var body: some View {
-            VStack(alignment: .leading
+        VStack(alignment: .leading
                    ) {
+            Spacer()
+            HStack
+            {
                 Spacer()
+                Text("Zahav")
+                    .font(.title)
+                    .fontWeight(.bold)
+                Spacer()
+            }
+            Spacer()
+                
                 
                 VStack(alignment: .leading,
                        spacing: 16) {
-                    Text("First Name: \(service.userDetails?.firstName ?? "N/A")").font(Font.custom("Inter-SemiBold", size: 24))
-                    Text("Last Name: \(service.userDetails?.lastName ?? "N/A")").font(Font.custom("Inter-SemiBold", size: 24))
-                    Text("Occupation: \(service.userDetails?.occupation ?? "N/A")").font(Font.custom("Inter-SemiBold", size: 24))
-                    Text("Gender: \(service.userDetails?.gender ?? "N/A")").font(Font.custom("Inter-SemiBold", size: 24))
+                    Text("Cuisine: Israeli").font(Font.custom("Inter-SemiBold", size: 24)).multilineTextAlignment(.center)
+                    Text("Time: 1.5 hours").font(Font.custom("Inter-SemiBold", size: 24))
+                    Text("Cost: $$$$").font(Font.custom("Inter-SemiBold", size: 24))
                 }
                 Spacer()
                     
-                    ButtonView(title: "Logout") {
+                    ButtonView(title: "Yes!") {
                         service.logout()
                     }
+            HStack {
+                Spacer()
+                Button("Give me another option!") {
+                    
+                }
+                Spacer()
+            }
+            
                 Spacer()
                 
             }
             .padding(.horizontal, 16)
-            .navigationTitle("View Recommendation")
+            .navigationTitle("Recommendation")
     }
 }
 

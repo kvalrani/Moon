@@ -10,6 +10,14 @@ struct PreferencesView: View {
     
     @EnvironmentObject var service: SessionServiceImpl
     
+    @State private var cuisine: String = ""
+    
+    @State private var selectedPriceOptions = Set<String>()
+        let priceOptions = ["$", "$$", "$$$", "$$$$"]
+    
+    @State private var selectedTimeOptions = Set<String>()
+        let timeOptions = ["0-15 minutes", "15-30 minutes", "30-60 minutes", "60+ minutes"]
+    
     var body: some View {
             VStack(alignment: .leading
                    ) {
@@ -17,15 +25,27 @@ struct PreferencesView: View {
                 
                 VStack(alignment: .leading,
                        spacing: 16) {
-                    Text("First Name: \(service.userDetails?.firstName ?? "N/A")").font(Font.custom("Inter-SemiBold", size: 24))
-                    Text("Last Name: \(service.userDetails?.lastName ?? "N/A")").font(Font.custom("Inter-SemiBold", size: 24))
-                    Text("Occupation: \(service.userDetails?.occupation ?? "N/A")").font(Font.custom("Inter-SemiBold", size: 24))
-                    Text("Gender: \(service.userDetails?.gender ?? "N/A")").font(Font.custom("Inter-SemiBold", size: 24))
+                    InputTextFieldView(text: $cuisine,
+                                       placeholder: "Cuisine",
+                                       keyboardType: .namePhonePad,
+                                       systemImage: nil)
+                    Text("Price:")
+                    Picker(selection: $selectedPriceOptions, label: Text("")) {
+                        ForEach(priceOptions, id: \.self) { option in
+                            Text(option)
+                        }
+                    }
+                    
+                    Text("Time-Sensitivity:")
+                    Picker(selection: $selectedTimeOptions, label: Text("")) {
+                        ForEach(timeOptions, id: \.self) { timeOptions in
+                            Text(timeOptions)
+                        }
+                    }
                 }
                 Spacer()
                     
-                    ButtonView(title: "Logout") {
-                        service.logout()
+                    ButtonView(title: "Go!") {
                     }
                 Spacer()
                 
