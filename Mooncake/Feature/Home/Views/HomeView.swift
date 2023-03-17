@@ -9,21 +9,31 @@ import SwiftUI
 struct HomeView: View {
     
     @EnvironmentObject var service: SessionServiceImpl
+    @State private var showProfile = false
+
     
     var body: some View {
             VStack(alignment: .leading
                    ) {
+                
+                Spacer()
+                    ButtonView(title: "Preferences") {
+                        service.logout()
+                    }
+                    ButtonView(title: "Recommendation") {
+                        service.logout()
+                    }
+                    ButtonView(title: "Feedback") {
+                        service.logout()
+                    }
+                
                 Spacer()
                 
-                VStack(alignment: .leading,
-                       spacing: 16) {
-                    Text("First Name: \(service.userDetails?.firstName ?? "N/A")").font(Font.custom("Inter-SemiBold", size: 24))
-                    Text("Last Name: \(service.userDetails?.lastName ?? "N/A")").font(Font.custom("Inter-SemiBold", size: 24))
-                    Text("Occupation: \(service.userDetails?.occupation ?? "N/A")").font(Font.custom("Inter-SemiBold", size: 24))
-                    Text("Gender: \(service.userDetails?.gender ?? "N/A")").font(Font.custom("Inter-SemiBold", size: 24))
-                }
-                Spacer()
-                    
+                    ButtonView(title: "Profile") {
+                        showProfile.toggle()
+                    }.sheet(isPresented: $showProfile){
+                        ProfileView()
+                    }
                     ButtonView(title: "Logout") {
                         service.logout()
                     }
