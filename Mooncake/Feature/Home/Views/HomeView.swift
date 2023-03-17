@@ -9,47 +9,44 @@ import SwiftUI
 struct HomeView: View {
     
     @EnvironmentObject var service: SessionServiceImpl
-    @State private var showProfile = false
-
     
     var body: some View {
+        NavigationView {
             VStack(alignment: .leading
                    ) {
                 
                 Spacer()
-                    ButtonView(title: "Preferences") {
-                        service.logout()
+                    
+                    NavigationLink(destination: PreferencesView()) {
+                        Text("Recommendation").frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 50)
+                            .background(Color.clear)
+                            .foregroundColor(Color(red: 0.37, green: 0.69, blue: 0.46))
+                            .font(.system(size: 30, weight: .bold))
+                            .cornerRadius(10)
                     }
-                    ButtonView(title: "Recommendation") {
-                        service.logout()
-                    }
-                    ButtonView(title: "Feedback") {
-                        service.logout()
-                    }
+                    
                 
-                Spacer()
+        
                 
-                    ButtonView(title: "Profile") {
-                        showProfile.toggle()
-                    }.sheet(isPresented: $showProfile){
-                        ProfileView()
-                    }
-                    ButtonView(title: "Logout") {
-                        service.logout()
+                    NavigationLink(destination: ProfileView()) {
+                        Text("Profile").frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 50)
+                            .background(Color.clear)
+                            .foregroundColor(Color(red: 0.37, green: 0.69, blue: 0.46))
+                            .font(.system(size: 30, weight: .bold))
+                            .cornerRadius(10)
                     }
                 Spacer()
                 
             }
             .padding(.horizontal, 16)
             .navigationTitle("Home")
+        }
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
             HomeView()
                 .environmentObject(SessionServiceImpl())
-        }
     }
 }

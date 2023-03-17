@@ -19,8 +19,9 @@ struct PreferencesView: View {
         let timeOptions = ["0-15 minutes", "15-30 minutes", "30-60 minutes", "60+ minutes"]
     
     var body: some View {
+        NavigationView {
             VStack(alignment: .leading
-                   ) {
+            ) {
                 Spacer()
                 
                 VStack(alignment: .leading,
@@ -44,14 +45,21 @@ struct PreferencesView: View {
                     }
                 }
                 Spacer()
-                    
-                    ButtonView(title: "Go!") {
-                    }
+                
+                
+                NavigationLink(destination: RecommendationView()) {
+                    Text("Go!").frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 50)
+                        .background(Color.clear)
+                        .foregroundColor(Color(red: 0.37, green: 0.69, blue: 0.46))
+                        .font(.system(size: 30, weight: .bold))
+                        .cornerRadius(10)
+                }
                 Spacer()
                 
             }
             .padding(.horizontal, 16)
             .navigationTitle("Preferences")
+        }
     }
 }
 

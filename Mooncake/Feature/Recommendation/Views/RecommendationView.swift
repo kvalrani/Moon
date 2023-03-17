@@ -11,18 +11,19 @@ struct RecommendationView: View {
     @EnvironmentObject var service: SessionServiceImpl
     
     var body: some View {
-        VStack(alignment: .leading
-                   ) {
-            Spacer()
-            HStack
-            {
+        NavigationView {
+            VStack(alignment: .leading
+            ) {
                 Spacer()
-                Text("Zahav")
-                    .font(.title)
-                    .fontWeight(.bold)
+                HStack
+                {
+                    Spacer()
+                    Text("Zahav")
+                        .font(.title)
+                        .fontWeight(.bold)
+                    Spacer()
+                }
                 Spacer()
-            }
-            Spacer()
                 
                 
                 VStack(alignment: .leading,
@@ -32,23 +33,27 @@ struct RecommendationView: View {
                     Text("Cost: $$$$").font(Font.custom("Inter-SemiBold", size: 24))
                 }
                 Spacer()
-                    
-                    ButtonView(title: "Yes!") {
-                        service.logout()
-                    }
-            HStack {
-                Spacer()
-                Button("Give me another option!") {
-                    
+                NavigationLink(destination: FeedbackView()) {
+                    Text("Yes!").frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 50)
+                        .background(Color.clear)
+                        .foregroundColor(Color(red: 0.37, green: 0.69, blue: 0.46))
+                        .font(.system(size: 30, weight: .bold))
+                        .cornerRadius(10)
                 }
-                Spacer()
-            }
-            
+                HStack {
+                    Spacer()
+                    Button("Give me another option!") {
+                        
+                    }
+                    Spacer()
+                }
+                
                 Spacer()
                 
             }
             .padding(.horizontal, 16)
             .navigationTitle("Recommendation")
+        }
     }
 }
 
