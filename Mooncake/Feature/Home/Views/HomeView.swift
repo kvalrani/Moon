@@ -17,15 +17,8 @@ struct HomeView: View {
                 
                 Spacer()
                     
+                  
                     NavigationLink(destination: PreferencesView()) {
-                        Text("Preferences")
-                        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 50)
-                        .background(Color.clear)
-                        .foregroundColor(Color(red: 0.37, green: 0.69, blue: 0.46))
-                        .font(.system(size: 16, weight: .bold))
-                        .cornerRadius(10)
-                    }
-                    NavigationLink(destination: RecommendationView()) {
                         Text("Recommendation").frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 50)
                             .background(Color.clear)
                             .foregroundColor(Color(red: 0.37, green: 0.69, blue: 0.46))
