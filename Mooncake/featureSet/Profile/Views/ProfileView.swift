@@ -12,44 +12,54 @@ struct ProfileView: View {
     let cornerRadius: CGFloat = 10
     
     var body: some View {
+        ZStack {
             VStack(alignment: .leading
-                   ) {
+            ) {
                 Spacer()
                 
                 VStack(alignment: .leading,
                        spacing: 16) {
-                    Text("First Name: \(service.userDetails?.firstName ?? "N/A")").font(Font.custom("Inter-SemiBold", size: 24))
-                    Text("Last Name: \(service.userDetails?.lastName ?? "N/A")").font(Font.custom("Inter-SemiBold", size: 24))
-                    Text("Occupation: \(service.userDetails?.occupation ?? "N/A")").font(Font.custom("Inter-SemiBold", size: 24))
-                    Text("Gender: \(service.userDetails?.gender ?? "N/A")").font(Font.custom("Inter-SemiBold", size: 24))
+                    Text("First Name: \(service.userDetails?.firstName ?? "N/A")").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
+                    Text("Last Name: \(service.userDetails?.lastName ?? "N/A")").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
+                    Text("Occupation: \(service.userDetails?.occupation ?? "N/A")").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
+                    Text("Gender: \(service.userDetails?.gender ?? "N/A")").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
                 }
                 Spacer()
-                    
-                    ButtonView(title: "Logout") {
-                        service.logout()
-                    }
+                
                 NavigationLink(destination: HomeView().environmentObject(service)) {
                     Text("Home").frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 50)
-                        .background(.clear)
+                        .background(.white)
                         .foregroundColor(Color(red: 0.37, green: 0.69, blue: 0.46))
                         .border(Color(red: 0.37, green: 0.69, blue: 0.46))
                         .font(.system(size: 16, weight: .bold))
-                        .cornerRadius(cornerRadius)
+                        .cornerRadius(10)
                         .overlay(
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(Color(red: 0.37, green: 0.69, blue: 0.46), lineWidth: 2)
                         )
                     
-                //background: .clear,
-                //foreground: (Color(red: 0.37, green: 0.69, blue: 0.46)),
-                //border: (Color(red: 0.37, green: 0.69, blue: 0.46))
+                    //background: .clear,
+                    //foreground: (Color(red: 0.37, green: 0.69, blue: 0.46)),
+                    //border: (Color(red: 0.37, green: 0.69, blue: 0.46))
                 }
+                
+                ButtonView(title: "Logout",
+                           background: .white,
+                           foreground: (Color(red: 0.37, green: 0.69, blue: 0.46)),
+                           border: (Color(red: 0.37, green: 0.69, blue: 0.46))) {
+                    service.logout()
+                }
+                
                 Spacer()
                 
             }
-            .padding(.horizontal, 16)
             .navigationTitle("Profile")
+            .padding(.all, 10.0)
+            .frame(width: nil, height: 500.0)
+            .background(Color(red: 0.37, green: 0.69, blue: 0.46))
+            .cornerRadius(20)
             //.applyClose()
+        }
     }
 }
 

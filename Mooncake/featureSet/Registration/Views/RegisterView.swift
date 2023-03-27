@@ -14,8 +14,12 @@ struct RegisterView: View {
     
     var body: some View {
         
-            
+        
             VStack(spacing: 32) {
+                Text("Register")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .multilineTextAlignment(.leading)
                 
                 VStack(spacing: 16) {
                     

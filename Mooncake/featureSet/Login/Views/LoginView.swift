@@ -32,6 +32,7 @@ struct LoginView: View {
                                   systemImage: "lock")
             }
             
+            /*
             HStack {
                 Spacer()
                 Button(action: {
@@ -44,6 +45,7 @@ struct LoginView: View {
                         ForgotPasswordView()
                 }
             }
+             */
             
             VStack(spacing: 16) {
                 ButtonView(title: "Login") {

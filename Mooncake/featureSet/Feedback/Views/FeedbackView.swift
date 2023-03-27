@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct FeedbackView: View {
+    @EnvironmentObject var service: SessionServiceImpl
+    
     @State private var selectedStarsQ = 0
     @State private var selectedStarsC = 0
     @State private var selectedStarsT = 0
@@ -95,7 +97,7 @@ struct FeedbackView: View {
                         Spacer().frame(height:0)
                         
                         VStack(alignment: .center, spacing: 5) {
-                            NavigationLink(destination: HomeView()) {
+                            NavigationLink(destination: HomeView().environmentObject(service)) {
                                 Text("Submit Rating").frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 50)
                                     .background(Color.clear)
                                     .foregroundColor(Color(red: 0.37, green: 0.69, blue: 0.46))

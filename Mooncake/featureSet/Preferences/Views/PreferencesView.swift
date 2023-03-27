@@ -71,7 +71,7 @@ struct PreferencesView: View {
                 Spacer()
                 
                 
-                NavigationLink(destination: RecommendationView()) {
+                NavigationLink(destination: RecommendationView().environmentObject(service)) {
                     Text("Go!").frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 50)
                         .background(Color(red: 0.37, green: 0.69, blue: 0.46))
                         .foregroundColor(Color.white)

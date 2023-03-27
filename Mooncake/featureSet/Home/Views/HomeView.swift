@@ -13,11 +13,13 @@ struct HomeView: View {
     var body: some View {
             VStack(alignment: .leading
                    ) {
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    Spacer()
                 
-                Spacer()
-                    
                   
-                    NavigationLink(destination: PreferencesView()) {
+                    NavigationLink(destination: PreferencesView().environmentObject(service)) {
                         Text("Recommendation").frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 50)
                             .background(Color(red: 0.37, green: 0.69, blue: 0.46))
                             .foregroundColor(Color.white)
@@ -46,6 +48,9 @@ struct HomeView: View {
                         )
                 }
 
+                Spacer()
+                Spacer()
+                Spacer()
                 Spacer()
                 
             }
