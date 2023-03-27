@@ -16,13 +16,6 @@ struct LoginView: View {
         service: LoginServiceImpl()
     )
     
-    let primaryColor = Color(red: 0.37, green: 0.69, blue: 0.46)
-    let secondaryColor = Color.gray.opacity(0.5)
-    let borderColor = Color.gray.opacity(0.25)
-    let cornerRadius: CGFloat = {
-        UIScreen.main.bounds.width < 375 ? 8 : 10 // Adjust the corner radius based on screen size
-    }()
-    
     var body: some View {
         
         VStack(spacing: 16) {
@@ -46,6 +39,7 @@ struct LoginView: View {
                 }, label: {
                     Text("Forgot Password?")
                 })
+                .font(.system(size: 16, weight: .bold)).foregroundColor(Color(red: 0.37, green: 0.69, blue: 0.46))
                 .sheet(isPresented: $showForgotPassword) {
                         ForgotPasswordView()
                 }
@@ -58,8 +52,8 @@ struct LoginView: View {
                 
                 ButtonView(title: "Register",
                            background: .clear,
-                           foreground: primaryColor,
-                           border: primaryColor) {
+                           foreground: (Color(red: 0.37, green: 0.69, blue: 0.46)),
+                           border: (Color(red: 0.37, green: 0.69, blue: 0.46))) {
                     showRegistration.toggle()
                 }
                 .sheet(isPresented: $showRegistration) {
@@ -69,18 +63,19 @@ struct LoginView: View {
         }
         .padding(.horizontal, 15)
         .navigationTitle("Login")
-        .alert(isPresented: $viewModel.hasError) {
-            let message: Text
-            if case .failed(let error) = viewModel.state {
-                message = Text(error.localizedDescription)
-            } else {
-                message = Text("Something went wrong")
-            }
-            return Alert(
-                title: Text("Error"),
-                message: message
-            )
-        }
+        .alert(isPresented: $viewModel.hasError,
+               content: {
+                
+                if case .failed(let error) = viewModel.state {
+                    return Alert(
+                        title: Text("Error"),
+                        message: Text(error.localizedDescription))
+                } else {
+                    return Alert(
+                        title: Text("Error"),
+                        message: Text("Something went wrong"))
+                }
+         })
     }
 }
 

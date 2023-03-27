@@ -10,64 +10,97 @@ struct PreferencesView: View {
     
     @EnvironmentObject var service: SessionServiceImpl
     
-    @State private var cuisine: String = ""
+    @State private var health: String = "Any"
+    let healthOptions = ["Any", "Healthy", "Medium", "Junk Food"]
     
-    @State private var selectedPriceOptions = Set<String>()
-        let priceOptions = ["$", "$$", "$$$", "$$$$"]
+    @State private var cuisine: String = "Any"
+    let cuisineOptions = ["Any", "Indian", "Chinese", "Thai", "French", "Mexican", "American", "Japanese", "Other"]
     
-    @State private var selectedTimeOptions = Set<String>()
-        let timeOptions = ["0-15 minutes", "15-30 minutes", "30-60 minutes", "60+ minutes"]
+    @State private var price = "Any"
+    let priceOptions = ["Any", "$", "$$", "$$$", "$$$$"]
+    
+    @State private var time = "Any"
+        let timeOptions = ["Any", "0-15 minutes", "16-30 minutes", "31-60 minutes", "60+ minutes"]
+    
+    @State private var allergy = "None"
+    let allergyOptions = ["None", "Nuts", "Sesame", "Fish", "Milk", "Eggs", "Wheat", "Soybean"]
+    
     
     var body: some View {
-        NavigationView {
+        
             VStack(alignment: .leading
             ) {
                 Spacer()
                 
                 VStack(alignment: .leading,
                        spacing: 16) {
-                    InputTextFieldView(text: $cuisine,
-                                       placeholder: "Cuisine",
-                                       keyboardType: .namePhonePad,
-                                       systemImage: nil)
+                    Text("Health:")
+                    Picker(selection: $health, label: Text("")) {
+                        ForEach(healthOptions, id: \.self) { option in
+                            Text(option)
+                        }
+                    }
+                    Text("Cuisine:")
+                    Picker(selection: $cuisine, label: Text("")) {
+                        ForEach(cuisineOptions, id: \.self) { option in
+                            Text(option)
+                        }
+                    }
                     Text("Price:")
-                    Picker(selection: $selectedPriceOptions, label: Text("")) {
+                    Picker(selection: $price, label: Text("")) {
                         ForEach(priceOptions, id: \.self) { option in
                             Text(option)
                         }
                     }
                     
                     Text("Time-Sensitivity:")
-                    Picker(selection: $selectedTimeOptions, label: Text("")) {
+                    Picker(selection: $time, label: Text("")) {
                         ForEach(timeOptions, id: \.self) { timeOptions in
                             Text(timeOptions)
                         }
                     }
+                   
+                    Text("Allergies:")
+                    Picker("Options", selection: $allergy) {
+                        ForEach(allergyOptions, id: \.self) { option in
+                            Text(option)
+                        }
+                    }
+                    //Text("Selected Option: //\(selectedAllergyOptions)")
                 }
                 Spacer()
                 
                 
                 NavigationLink(destination: RecommendationView()) {
                     Text("Go!").frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 50)
-                        .background(Color.clear)
-                        .foregroundColor(Color(red: 0.37, green: 0.69, blue: 0.46))
-                        .font(.system(size: 30, weight: .bold))
+                        .background(Color(red: 0.37, green: 0.69, blue: 0.46))
+                        .foregroundColor(Color.white)
+                        .border(Color(red: 0.37, green: 0.69, blue: 0.46))
+                        .font(.system(size: 16, weight: .bold))
                         .cornerRadius(10)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color(red: 0.37, green: 0.69, blue: 0.46), lineWidth: 2)
+                        )
                 }
                 Spacer()
                 
             }
-            .padding(.horizontal, 16)
-            .navigationTitle("Preferences")
-        }
+            .padding(.horizontal, 16).navigationTitle("Preferences")
+            
+        
     }
+}
+
+struct OptionID: Hashable {
+    let value: String
 }
 
 struct PreferencesView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
+        
             PreferencesView()
                 .environmentObject(SessionServiceImpl())
-        }
+        
     }
 }

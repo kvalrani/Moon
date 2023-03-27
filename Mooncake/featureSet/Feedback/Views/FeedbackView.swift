@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct FeedbackView: View {
-    @State private var selectedStars = 0
+    @State private var selectedStarsQ = 0
+    @State private var selectedStarsC = 0
+    @State private var selectedStarsT = 0
 
     var body: some View {
-        NavigationView {
+        
             ZStack {
                 Color(red: 0.37, green: 0.69, blue: 0.46)
                     .edgesIgnoringSafeArea(.all)
@@ -19,27 +21,73 @@ struct FeedbackView: View {
                 VStack {
                     Spacer()
                     
-                    VStack(alignment: .center, spacing: 15) {
+                    VStack(alignment: .center, spacing: 10.0) {
                         Spacer().frame(height:0)
-                        
-                        HStack {
-                            ForEach(0 ..< 5, id: \.self) { index in
-                                Image(systemName: self.selectedStars >= index + 1 ? "star.fill" : "star")
-                                    .font(.system(size: 25))
-                                    .foregroundColor(.yellow)
-                                    .onTapGesture {
-                                        self.selectedStars = index + 1
-                                    }
-                            }
-                        }
-                        Spacer().frame(height:0)
-                        
                         Text("Rate Today's Food!")
                             .font(.largeTitle)
                             .foregroundColor(.black)
                             .bold()
+                        Text("Quality")
+                            .font(.title)
+                            .foregroundColor(.black)
+                            .multilineTextAlignment(.leading)
+                            .bold()
+                        HStack {
+                            ForEach(0 ..< 5, id: \.self) { index in
+                                Image(systemName: self.selectedStarsQ >= index + 1 ? "star.fill" : "star")
+                                    .font(.system(size: 25))
+                                    .foregroundColor(.yellow)
+                                    .onTapGesture {
+                                        self.selectedStarsQ = index + 1
+                                    }
+                            }
+                            
+                            
+                        }
                         
-                        Text("Please give a ranking of whether you liked today’s meal choice in order to improve our algorithm and create better choices for you")
+                        VStack {
+                            
+                            Text("Cost")
+                                .font(.title)
+                                .foregroundColor(.black)
+                                .multilineTextAlignment(.leading)
+                                .bold()
+                            HStack {
+                                ForEach(0 ..< 5, id: \.self) { index in
+                                    Image(systemName: self.selectedStarsC >= index + 1 ? "star.fill" : "star")
+                                        .font(.system(size: 25))
+                                        .foregroundColor(.yellow)
+                                        .onTapGesture {
+                                            self.selectedStarsC = index + 1
+                                        }
+                                }
+                            }
+                        }
+                        VStack {
+                            Text("Time")
+                                .font(.title)
+                                .foregroundColor(.black)
+                                .multilineTextAlignment(.leading)
+                                .bold()
+                            HStack {
+                                ForEach(0 ..< 5, id: \.self) { index in
+                                    Image(systemName: self.selectedStarsT >= index + 1 ? "star.fill" : "star")
+                                        .font(.system(size: 25))
+                                        .foregroundColor(.yellow)
+                                        .onTapGesture {
+                                            self.selectedStarsT = index + 1
+                                        }
+                                }
+                                
+                                
+                            }
+                        }
+                        
+                        Spacer().frame(height:0)
+                        
+                        
+                        
+                        Text("Please give a ranking of each component of today’s meal choice in order to improve our algorithm and create better choices for you")
                             .font(.body)
                             .foregroundColor(.black)
                             .multilineTextAlignment(.center)
@@ -70,13 +118,14 @@ struct FeedbackView: View {
                             
                         }
                     }
-                    .padding(10)
+                    .padding(.all, 10.0)
+                    .frame(width: nil)
                     .background(Color.white)
                     .cornerRadius(20)
                     
                     Spacer()
                 }
-            }
+            
         }
     }
 }

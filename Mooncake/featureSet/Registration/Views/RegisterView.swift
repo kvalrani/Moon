@@ -14,7 +14,6 @@ struct RegisterView: View {
     
     var body: some View {
         
-        NavigationView {
             
             VStack(spacing: 32) {
                 
@@ -76,7 +75,6 @@ struct RegisterView: View {
                     }
             })
         }
-    }
 }
 
 struct RegisterView_Previews: PreviewProvider {

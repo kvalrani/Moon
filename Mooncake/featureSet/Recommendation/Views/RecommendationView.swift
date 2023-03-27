@@ -11,7 +11,7 @@ struct RecommendationView: View {
     @EnvironmentObject var service: SessionServiceImpl
     
     var body: some View {
-        NavigationView {
+        
             VStack(alignment: .leading
             ) {
                 Spacer()
@@ -35,17 +35,30 @@ struct RecommendationView: View {
                 Spacer()
                 NavigationLink(destination: FeedbackView()) {
                     Text("Yes!").frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 50)
-                        .background(Color.clear)
-                        .foregroundColor(Color(red: 0.37, green: 0.69, blue: 0.46))
-                        .font(.system(size: 30, weight: .bold))
+                        .background(Color(red: 0.37, green: 0.69, blue: 0.46))
+                        .foregroundColor(Color.white)
+                        .border(Color(red: 0.37, green: 0.69, blue: 0.46))
+                        .font(.system(size: 16, weight: .bold))
                         .cornerRadius(10)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color(red: 0.37, green: 0.69, blue: 0.46), lineWidth: 2)
+                        )
                 }
                 HStack {
-                    Spacer()
-                    Button("Give me another option!") {
-                        
+                
+                    NavigationLink(destination: RecommendationView()) {
+                        Text("Give Me Another Option!").frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 50)
+                            .background(.clear)
+                            .foregroundColor(Color(red: 0.37, green: 0.69, blue: 0.46))
+                            .border(Color(red: 0.37, green: 0.69, blue: 0.46))
+                            .font(.system(size: 16, weight: .bold))
+                            .cornerRadius(10)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color(red: 0.37, green: 0.69, blue: 0.46), lineWidth: 2)
+                            )
                     }
-                    Spacer()
                 }
                 
                 Spacer()
@@ -53,15 +66,15 @@ struct RecommendationView: View {
             }
             .padding(.horizontal, 16)
             .navigationTitle("Recommendation")
-        }
+        
     }
 }
 
 struct RecommendationView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
+
             RecommendationView()
                 .environmentObject(SessionServiceImpl())
-        }
+
     }
 }
