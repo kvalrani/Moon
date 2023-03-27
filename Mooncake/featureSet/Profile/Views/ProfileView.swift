@@ -32,7 +32,7 @@ struct ProfileView: View {
             }
             .padding(.horizontal, 16)
             .navigationTitle("Profile")
-            .applyClose()
+//            .applyClose()
     }
 }
 

@@ -10,13 +10,6 @@ import FirebaseAuth
 import FirebaseDatabase
 import Combine
 
-// Create a protocol with the following
-/**
- * Init
- * state
- * Publisher to return the user so in the view model you can map and create a struct
- */
-
 enum SessionState {
     case loggedIn
     case loggedOut
@@ -29,14 +22,13 @@ struct UserSessionDetails {
     let gender: String
 }
 
-protocol SessionService {
+protocol SessionService: ObservableObject {
     var state: SessionState { get }
     var userDetails: UserSessionDetails? { get }
-    init()
     func logout()
 }
 
-final class SessionServiceImpl: SessionService, ObservableObject {
+final class SessionServiceImpl: SessionService {
     
     @Published var state: SessionState = .loggedOut
     @Published var userDetails: UserSessionDetails?
@@ -82,10 +74,10 @@ private extension SessionServiceImpl {
                             
                             guard let self = self,
                                   let value = snapshot.value as? NSDictionary,
-                                  let firstName = value[RegistrationKeys.firstName.rawValue] as? String,
-                                  let lastName = value[RegistrationKeys.lastName.rawValue] as? String,
-                                  let occupation = value[RegistrationKeys.occupation.rawValue] as? String,
-                                  let gender = value[RegistrationKeys.gender.rawValue] as? String else {
+                                  let firstName = value[UserRegistrationDetails.firstName.rawValue] as? String,
+                                  let lastName = value[UserRegistrationDetails.lastName.rawValue] as? String,
+                                  let occupation = value[UserRegistrationDetails.occupation.rawValue] as? String,
+                                  let gender = value[UserRegistrationDetails.gender.rawValue] as? String else {
                                 return
                             }
 
@@ -100,3 +92,4 @@ private extension SessionServiceImpl {
             }
     }
 }
+

@@ -1,32 +1,25 @@
-//
-//  RegistrationViewModel.swift
-//  Mooncake
-//
-//  Created by Pranav Aurora on 2/20/23.
-//
-
 import Foundation
 import Combine
 
 enum RegistrationState {
-    case successfullyRegistered
-    case failed(error: Error)
-    case na
+    case success
+    case failure(error: Error)
+    case none
 }
 
 protocol RegistrationViewModel {
-    func create()
     var service: RegistrationService { get }
     var state: RegistrationState { get }
     var hasError: Bool { get }
     var newUser: RegistrationCredentials { get }
+    func createUser()
     init(service: RegistrationService)
 }
 
 final class RegistrationViewModelImpl: ObservableObject, RegistrationViewModel {
     
     let service: RegistrationService
-    @Published var state: RegistrationState = .na
+    @Published var state: RegistrationState = .none
     @Published var newUser = RegistrationCredentials(email: "",
                                                      password: "",
                                                      firstName: "",
@@ -42,19 +35,17 @@ final class RegistrationViewModelImpl: ObservableObject, RegistrationViewModel {
         setupErrorSubscription()
     }
     
-    func create() {
-                
+    func createUser() {
         service
             .register(with: newUser)
-            .sink { [weak self] res in
-            
-                switch res {
+            .sink { [weak self] result in
+                switch result {
                 case .failure(let error):
-                    self?.state = .failed(error: error)
+                    self?.state = .failure(error: error)
                 default: break
                 }
             } receiveValue: { [weak self] in
-                self?.state = .successfullyRegistered
+                self?.state = .success
             }
             .store(in: &subscriptions)
     }
@@ -66,10 +57,9 @@ private extension RegistrationViewModelImpl {
         $state
             .map { state -> Bool in
                 switch state {
-                case .successfullyRegistered,
-                     .na:
+                case .success, .none:
                     return false
-                case .failed:
+                case .failure:
                     return true
                 }
             }

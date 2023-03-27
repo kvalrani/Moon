@@ -34,8 +34,7 @@
 		B502A34329A3E2F700DCDCD9 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = B502A34229A3E2F700DCDCD9 /* FirebaseStorage */; };
 		B502A34529A3E2F700DCDCD9 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = B502A34429A3E2F700DCDCD9 /* FirebaseStorageCombine-Community */; };
 		B502A34C29A3E5A800DCDCD9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B502A34B29A3E5A800DCDCD9 /* LoginView.swift */; };
-		B502A35029A3E6B400DCDCD9 /* TextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B502A34F29A3E6B400DCDCD9 /* TextInput.swift */; };
-		B5A0EC8D29A3EBE700D408A2 /* NavigationCloseViewModifer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A0EC8C29A3EBE700D408A2 /* NavigationCloseViewModifer.swift */; };
+		B502A35029A3E6B400DCDCD9 /* GenericTextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B502A34F29A3E6B400DCDCD9 /* GenericTextInput.swift */; };
 		B5A0EC9029A3EC8400D408A2 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A0EC8F29A3EC8400D408A2 /* LoginViewModel.swift */; };
 		B5A0EC9329A3ED3500D408A2 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A0EC9229A3ED3500D408A2 /* LoginService.swift */; };
 		B5A0EC9929A3EE5200D408A2 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A0EC9829A3EE5200D408A2 /* RegisterView.swift */; };
@@ -61,8 +60,7 @@
 		5F8D34F929BE729600A5644C /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
 		B502A32329A3E24900DCDCD9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B502A34B29A3E5A800DCDCD9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		B502A34F29A3E6B400DCDCD9 /* TextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInput.swift; sourceTree = "<group>"; };
-		B5A0EC8C29A3EBE700D408A2 /* NavigationCloseViewModifer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCloseViewModifer.swift; sourceTree = "<group>"; };
+		B502A34F29A3E6B400DCDCD9 /* GenericTextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTextInput.swift; sourceTree = "<group>"; };
 		B5A0EC8F29A3EC8400D408A2 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		B5A0EC9229A3ED3500D408A2 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		B5A0EC9829A3EE5200D408A2 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
@@ -121,8 +119,8 @@
 		5F6FBD582992098E00F570B5 /* Mooncake */ = {
 			isa = PBXGroup;
 			children = (
-				B502A34D29A3E68200DCDCD9 /* Base */,
-				B502A34629A3E54400DCDCD9 /* Feature */,
+				B502A34D29A3E68200DCDCD9 /* baseComponents */,
+				B502A34629A3E54400DCDCD9 /* featureSet */,
 				5F6FBD592992098E00F570B5 /* MooncakeApp.swift */,
 				416C1D832998391F00BA7B10 /* OrderPlaced.swift */,
 				416C1D852998437600BA7B10 /* RatingFood.swift */,
@@ -269,7 +267,7 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
-		B502A34629A3E54400DCDCD9 /* Feature */ = {
+		B502A34629A3E54400DCDCD9 /* featureSet */ = {
 			isa = PBXGroup;
 			children = (
 				5F8D34EF29BE6F5F00A5644C /* Feedback */,
@@ -282,7 +280,7 @@
 				B5A0EC9429A3EE0B00D408A2 /* Registration */,
 				B502A34829A3E55C00DCDCD9 /* Login */,
 			);
-			path = Feature;
+			path = featureSet;
 			sourceTree = "<group>";
 		};
 		B502A34829A3E55C00DCDCD9 /* Login */ = {
@@ -303,29 +301,20 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		B502A34D29A3E68200DCDCD9 /* Base */ = {
+		B502A34D29A3E68200DCDCD9 /* baseComponents */ = {
 			isa = PBXGroup;
 			children = (
-				B5A0EC8B29A3EBCD00D408A2 /* Modifiers */,
-				B502A34E29A3E69000DCDCD9 /* Views */,
+				B502A34E29A3E69000DCDCD9 /* baseInput */,
 			);
-			path = Base;
+			path = baseComponents;
 			sourceTree = "<group>";
 		};
-		B502A34E29A3E69000DCDCD9 /* Views */ = {
+		B502A34E29A3E69000DCDCD9 /* baseInput */ = {
 			isa = PBXGroup;
 			children = (
-				B502A34F29A3E6B400DCDCD9 /* TextInput.swift */,
+				B502A34F29A3E6B400DCDCD9 /* GenericTextInput.swift */,
 			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		B5A0EC8B29A3EBCD00D408A2 /* Modifiers */ = {
-			isa = PBXGroup;
-			children = (
-				B5A0EC8C29A3EBE700D408A2 /* NavigationCloseViewModifer.swift */,
-			);
-			path = Modifiers;
+			path = baseInput;
 			sourceTree = "<group>";
 		};
 		B5A0EC8E29A3EC7300D408A2 /* ViewModel */ = {
@@ -553,9 +542,8 @@
 				B5A0ECA529A3EF5000D408A2 /* ForgetPasswordViewModel.swift in Sources */,
 				5F8D34F629BE720A00A5644C /* PreferencesView.swift in Sources */,
 				5F6FBD5A2992098E00F570B5 /* MooncakeApp.swift in Sources */,
-				B5A0EC8D29A3EBE700D408A2 /* NavigationCloseViewModifer.swift in Sources */,
 				B5A0ECA729A3EF7900D408A2 /* ForgetPasswordService.swift in Sources */,
-				B502A35029A3E6B400DCDCD9 /* TextInput.swift in Sources */,
+				B502A35029A3E6B400DCDCD9 /* GenericTextInput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

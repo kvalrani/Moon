@@ -5,17 +5,15 @@
 //  Created by Pranav Aurora on 2/20/23.
 //
 
-import Foundation
 import Combine
-import SwiftUI
+import Foundation
 
-protocol LoginViewModel {
+protocol LoginViewModel: ObservableObject {
     func login()
     var service: LoginService { get }
     var state: LoginState { get }
     var hasError: Bool { get }
-    var credentials: LoginCredentials { get }
-    init(service: LoginService)
+    var credentials: LoginCredentials { get set }
 }
 
 enum LoginState {
@@ -24,12 +22,11 @@ enum LoginState {
     case na
 }
 
-final class LoginViewModelImpl: ObservableObject, LoginViewModel {
+final class LoginViewModelImpl: LoginViewModel {
     
     let service: LoginService
     @Published var state: LoginState = .na
-    @Published var credentials: LoginCredentials = LoginCredentials(email: "",
-                                                                    password: "")
+    @Published var credentials: LoginCredentials = LoginCredentials(email: "", password: "")
     @Published var hasError: Bool = false
     
     private var subscriptions = Set<AnyCancellable>()
@@ -42,15 +39,19 @@ final class LoginViewModelImpl: ObservableObject, LoginViewModel {
     func login() {
         service
             .login(with: credentials)
-            .sink { res in
-                switch res {
-                case .failure(let err):
-                    self.state = .failed(error: err)
-                default: break
+            .sink(
+                receiveCompletion: { [weak self] completion in
+                    switch completion {
+                    case .failure(let error):
+                        self?.state = .failed(error: error)
+                    case .finished:
+                        break
+                    }
+                },
+                receiveValue: { [weak self] _ in
+                    self?.state = .successfullyLoggedIn
                 }
-            } receiveValue: { [weak self] in
-                self?.state = .successfullyLoggedIn
-            }
+            )
             .store(in: &subscriptions)
     }
 }
@@ -71,3 +72,4 @@ private extension LoginViewModelImpl {
             .assign(to: &$hasError)
     }
 }
+

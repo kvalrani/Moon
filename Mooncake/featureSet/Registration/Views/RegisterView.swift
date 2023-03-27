@@ -56,16 +56,16 @@ struct RegisterView: View {
                 ButtonView(title: "Sign up", background: (Color(red: 0.37, green: 0.69, blue: 0.46)),
                            foreground: .white,
                            border: .white) {
-                    viewModel.create()
+                    viewModel.createUser()
                 }
             }
             .padding(.horizontal, 15)
             .navigationTitle("Register")
-            .applyClose()
+//            .applyClose()
             .alert(isPresented: $viewModel.hasError,
                    content: {
                     
-                    if case .failed(let error) = viewModel.state {
+                    if case.failure(let error) = viewModel.state {
                         return Alert(
                             title: Text("Error"),
                             message: Text(error.localizedDescription))
