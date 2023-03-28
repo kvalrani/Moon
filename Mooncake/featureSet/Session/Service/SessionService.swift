@@ -16,6 +16,10 @@ enum SessionState {
     case loggedOut
 }
 
+struct FoodData {
+    static var foodData: [String: Any]?
+}
+
 struct UserSessionDetails {
     let firstName: String
     let lastName: String
@@ -91,27 +95,23 @@ private extension SessionServiceImpl {
                                                                       gender: gender)
                             }
                         }
-                }
-            }
-        let db = Firestore.firestore()
-        let collectionRef = db.collection("food")
+                    let db = Firestore.firestore()
+                    let docRef = db.collection("food").document(uid)
 
-        let query = collectionRef.whereField("price", isEqualTo: 2)
-                                  .whereField("time", isEqualTo: 75)
-                                  .whereField("health", isEqualTo: 2)
-                                  .whereField("cuisine", isEqualTo: "Japanese")
-
-        query.getDocuments { (querySnapshot, error) in
-            if let error = error {
-                print("Error getting documents: \(error)")
-            } else {
-                for document in querySnapshot!.documents {
-                    if let name = document.get("name") as? String {
-                        print(name)
+                    docRef.getDocument { (document, error) in
+                        if let document = document, document.exists {
+                            // Extract the data from the document
+                            let data = document.data()
+                                FoodData.foodData = data
+                                print(data)
+                        } else {
+                            //want to get the default document here...
+                            print("Document does not exist")
+                        }
                     }
                 }
             }
-        }
+
     }
 }
 

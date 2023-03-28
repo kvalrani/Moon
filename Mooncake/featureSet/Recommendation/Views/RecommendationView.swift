@@ -9,8 +9,10 @@ import SwiftUI
 struct RecommendationView: View {
     
     @EnvironmentObject var service: SessionServiceImpl
-
     
+    
+    let data = FoodData.foodData
+
     let health: String
     let cuisine: String
     let price: String
@@ -27,6 +29,7 @@ struct RecommendationView: View {
     
     var body: some View {
         ZStack {
+        
                         
             VStack(alignment: .leading
             ) {
