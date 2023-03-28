@@ -9,24 +9,6 @@ import SwiftUI
 struct RecommendationView: View {
     
     @EnvironmentObject var service: SessionServiceImpl
-
-    @StateObject private var viewModel = RecommendationViewModelImpl(
-    )
-    
-    
-    let health: String
-    let cuisine: String
-    let price: String
-    let time: String
-    let allergy: String
-    
-    init(health: String, cuisine: String, price: String, time: String, allergy: String) {
-        self.health = health
-        self.cuisine = cuisine
-        self.price = price
-        self.time = time
-        self.allergy = allergy
-    }
     
     var body: some View {
         ZStack {
@@ -44,15 +26,15 @@ struct RecommendationView: View {
                     Spacer()
                 }
                 Spacer()
-            
+                
                 
                 VStack(alignment: .leading,
                        spacing: 16) {
-                    Text("Cuisine: \(cuisine)").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
-                    Text("Time: \(time)").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
-                    Text("Cost: \(price)").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
-                    Text("Health: \(health)").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
-                    Text("Allergies: \(allergy)").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
+                    Text("Cuisine: Israeli").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
+                    Text("Time: 1.5 hours").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
+                    Text("Cost: $$$$").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
+                    Text("Health: Medium").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
+                    Text("Allergies: None").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
                 }
                 Spacer()
                 Spacer()
@@ -70,7 +52,7 @@ struct RecommendationView: View {
                 }
                 HStack {
                     
-                    NavigationLink(destination: RecommendationView(health: health, cuisine: cuisine, price: price, time: time, allergy: allergy).environmentObject(service)) {
+                    NavigationLink(destination: RecommendationView().environmentObject(service)) {
                         Text("Give Me Another Option!").frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 50)
                             .background(.white)
                             .foregroundColor(Color(red: 0.37, green: 0.69, blue: 0.46))
@@ -99,4 +81,11 @@ struct RecommendationView: View {
     }
 }
 
+struct RecommendationView_Previews: PreviewProvider {
+    static var previews: some View {
 
+            RecommendationView()
+                .environmentObject(SessionServiceImpl())
+
+    }
+}
