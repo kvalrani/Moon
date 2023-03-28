@@ -5,6 +5,7 @@
 //  Created by Pranav Aurora on 2/20/23.
 //
 import SwiftUI
+import Foundation
 
 struct RecommendationView: View {
     
@@ -14,18 +15,19 @@ struct RecommendationView: View {
     let data = FoodData.foodData
 
     let health: String
-    let cuisine: String
-    let price: String
-    let time: String
-    let allergy: String
-    
-    init(health: String, cuisine: String, price: String, time: String, allergy: String) {
-        self.health = health
-        self.cuisine = cuisine
-        self.price = price
-        self.time = time
-        self.allergy = allergy
-    }
+      let cuisine: String
+      let price: String
+      let time: String
+      let allergy: String
+
+      init(health: String, cuisine: String, price: String, time: String, allergy: String) {
+          self.health = health
+          self.cuisine = cuisine
+          self.price = price
+          self.time = time
+          self.allergy = allergy
+      }
+
     
     var body: some View {
         ZStack {
@@ -44,7 +46,7 @@ struct RecommendationView: View {
                     Spacer()
                 }
                 Spacer()
-            
+                
                 
                 VStack(alignment: .leading,
                        spacing: 16) {
@@ -52,7 +54,7 @@ struct RecommendationView: View {
                     Text("Time: \(time)").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
                     Text("Cost: \(price)").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
                     Text("Health: \(health)").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
-                    Text("Allergies: \(allergy)").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
+                    Text("Dietry Preferences: \(allergy)").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
                 }
                 Spacer()
                 Spacer()
@@ -98,5 +100,4 @@ struct RecommendationView: View {
         }
     }
 }
-
 
