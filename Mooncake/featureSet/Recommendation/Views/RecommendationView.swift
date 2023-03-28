@@ -35,9 +35,12 @@ struct RecommendationView: View {
     let data = FoodData.foodData
     
     func findMatchedRestaurant() -> [Any] {
+            var matches: [[Any]] = []
             guard let unwrappedData = data else { return [] }
             for (key, entry) in unwrappedData.enumerated() {
+                
                 guard let entryDict = entry.value as? [String: Any],
+                      let rank = Int(entry.key),
                       let name = entryDict["Name"] as? String,
                       let entryCuisine = entryDict["Cuisine"] as? String,
                       let entryHealth = entryDict["Health"] as? Int,
@@ -125,16 +128,16 @@ struct RecommendationView: View {
                         if(modTime > 0) {
                             if ((entryPrice == modPrice) && (entryHealth == modHealth) && (entryTime < modTime)) {
                                    print("Match found! Name: \(name), Cuisine: \(cuisine), Price: \(price), Time: \(time) ")
-                                var myArray: [Any] = [name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
-                                return myArray
+                                var myArray: [Any] = [rank, name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
+                                matches.append(myArray)
                             }
                             
                         }
                         else {
                             if ((entryPrice == modPrice) && (entryHealth == modHealth)) {
                                    print("Match found! Name: \(name), Cuisine: \(cuisine), Price: \(price), Time: \(time) ")
-                                var myArray: [Any] = [name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
-                                return myArray
+                                var myArray: [Any] = [rank, name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
+                                matches.append(myArray)
                             }
                         }
                     }
@@ -142,16 +145,16 @@ struct RecommendationView: View {
                         if(modTime > 0) {
                             if ((entryPrice == modPrice) && (entryTime < modTime)) {
                                    print("Match found! Name: \(name), Cuisine: \(cuisine), Price: \(price), Time: \(time) ")
-                                var myArray: [Any] = [name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
-                                return myArray
+                                var myArray: [Any] = [rank, name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
+                                matches.append(myArray)
                             }
                             
                         }
                         else {
                             if ((entryPrice == modPrice)) {
                                    print("Match found! Name: \(name), Cuisine: \(cuisine), Price: \(price), Time: \(time) ")
-                                var myArray: [Any] = [name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
-                                return myArray
+                                var myArray: [Any] = [rank, name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
+                                matches.append(myArray)
                             }
                         }
                     }
@@ -162,16 +165,16 @@ struct RecommendationView: View {
                         if(modTime > 0) {
                             if ((entryHealth == modHealth) && (entryTime < modTime)) {
                                 print("Match found! Name: \(name), Cuisine: \(cuisine), Price: \(price), Time: \(time) ")
-                                var myArray: [Any] = [name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
-                                return myArray
+                                var myArray: [Any] = [rank, name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
+                                matches.append(myArray)
                             }
                             
                         }
                         else {
                             if ((entryHealth == modHealth)) {
                                 print("Match found! Name: \(name), Cuisine: \(cuisine), Price: \(price), Time: \(time) ")
-                                var myArray: [Any] = [name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
-                                return myArray
+                                var myArray: [Any] = [rank, name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
+                                matches.append(myArray)
                             }
                         }
                     }
@@ -179,8 +182,8 @@ struct RecommendationView: View {
                         if(modTime > 0) {
                             if ((entryTime < modTime)) {
                                 print("Match found! Name: \(name), Cuisine: \(cuisine), Price: \(price), Time: \(time) ")
-                                var myArray: [Any] = [name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
-                                return myArray
+                                var myArray: [Any] = [rank, name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
+                                matches.append(myArray)
                             }
                             
                         }
@@ -189,14 +192,14 @@ struct RecommendationView: View {
                             {
                                 if ((entryPrice == modPrice)) {
                                     print("Match found! Name: \(name), Cuisine: \(cuisine), Price: \(price), Time: \(time) ")
-                                    var myArray: [Any] = [name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
-                                    return myArray
+                                    var myArray: [Any] = [rank, name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
+                                    matches.append(myArray)
                                 }
                             }
                             else {
                                 print("Match found! Name: \(name), Cuisine: \(cuisine), Price: \(price), Time: \(time) ")
-                                var myArray: [Any] = [name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
-                                return myArray
+                                var myArray: [Any] = [rank, name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
+                                matches.append(myArray)
                             }
                         }
                     }
@@ -208,16 +211,16 @@ struct RecommendationView: View {
                         if(modTime > 0) {
                             if ((entryPrice == modPrice) && (entryHealth == modHealth) && (entryTime < modTime) && (entryCuisine == cuisine)) {
                                    print("Match found! Name: \(name), Cuisine: \(cuisine), Price: \(price), Time: \(time) ")
-                                var myArray: [Any] = [name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
-                                return myArray
+                                var myArray: [Any] = [rank, name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
+                                matches.append(myArray)
                             }
                             
                         }
                         else {
                             if ((entryPrice == modPrice) && (entryHealth == modHealth) && (entryCuisine == cuisine)) {
                                    print("Match found! Name: \(name), Cuisine: \(cuisine), Price: \(price), Time: \(time) ")
-                                var myArray: [Any] = [name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
-                                return myArray
+                                var myArray: [Any] = [rank, name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
+                                matches.append(myArray)
                             }
                         }
                     }
@@ -225,16 +228,16 @@ struct RecommendationView: View {
                         if(modTime > 0) {
                             if ((entryPrice == modPrice) && (entryTime < modTime) && (entryCuisine == cuisine)) {
                                    print("Match found! Name: \(name), Cuisine: \(cuisine), Price: \(price), Time: \(time) ")
-                                var myArray: [Any] = [name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
-                                return myArray
+                                var myArray: [Any] = [rank, name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
+                                matches.append(myArray)
                             }
                             
                         }
                         else {
                             if ((entryPrice == modPrice) && (entryCuisine == cuisine)) {
                                    print("Match found! Name: \(name), Cuisine: \(cuisine), Price: \(price), Time: \(time) ")
-                                var myArray: [Any] = [name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
-                                return myArray
+                                var myArray: [Any] = [rank, name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
+                                matches.append(myArray)
                             }
                         }
                     }
@@ -245,16 +248,16 @@ struct RecommendationView: View {
                         if(modTime > 0) {
                             if ((entryPrice == modPrice) && (entryHealth == modHealth) && (entryTime < modTime) && (entryCuisine == cuisine)) {
                                 print("Match found! Name: \(name), Cuisine: \(cuisine), Price: \(price), Time: \(time) ")
-                                var myArray: [Any] = [name, cuisine, health, price, entryTime]
-                                return myArray
+                                var myArray: [Any] = [rank, name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
+                                matches.append(myArray)
                             }
                             
                         }
                         else {
                             if ((entryHealth == modHealth) && (entryCuisine == cuisine)) {
                                 print("Match found! Name: \(name), Cuisine: \(cuisine), Price: \(price), Time: \(time) ")
-                                var myArray: [Any] = [name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
-                                return myArray
+                                var myArray: [Any] = [rank, name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
+                                matches.append(myArray)
                             }
                         }
                     }
@@ -262,16 +265,16 @@ struct RecommendationView: View {
                         if(modTime > 0) {
                             if ((entryTime < modTime) && (entryCuisine == cuisine)) {
                                 print("Match found! Name: \(name), Cuisine: \(cuisine), Price: \(price), Time: \(time) ")
-                                var myArray: [Any] = [name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
-                                return myArray
+                                var myArray: [Any] = [rank, name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
+                                matches.append(myArray)
                             }
                             
                         }
                         else {
                             if ((entryCuisine == cuisine)) {
                                 print("Match found! Name: \(name), Cuisine: \(cuisine), Price: \(price), Time: \(time) ")
-                                var myArray: [Any] = [name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
-                                return myArray
+                                var myArray: [Any] = [rank, name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
+                                matches.append(myArray)
                             }
                         }
                     }
@@ -281,7 +284,34 @@ struct RecommendationView: View {
             
 
         }
+        var smallestRank = 1000
+        for item in matches {
+            if let array = item as? [Any] {
+                // perform operations on the array
+                if let r = array[0] as? Int {
+                    if (r < smallestRank) {
+                        smallestRank = r
+                    }
+                }
+                
+            }
+            
+        }
+        
+        for item in matches {
+            if let array = item as? [Any] {
+                // perform operations on the array
+                if let r = array[0] as? Int {
+                    if (r == smallestRank) {
+                        print(array)
+                        return array
+                    }
+                }
+                
+            }
+        }
         return []
+                
     }
     
     var body: some View {
@@ -297,7 +327,7 @@ struct RecommendationView: View {
                 {
                     Spacer()
                     //Kunal and Kush to change name
-                    Text("\(NSString(string: "\(matchedRestaurant[0])"))")
+                    Text("\(NSString(string: "\(matchedRestaurant[1])")) ")
                         .font(.largeTitle)
                         .fontWeight(.bold)
                     Spacer()
@@ -309,10 +339,10 @@ struct RecommendationView: View {
                        spacing: 16) {
                     
                     //Kunal and Kush to change these
-                    Text("Cuisine: \(NSString(string: "\(matchedRestaurant[1])"))").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
-                    Text("Time: \(NSString(string: "\(matchedRestaurant[4])"))").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
-                    Text("Cost: \(NSString(string: "\(matchedRestaurant[3])"))").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
-                    Text("Health: \(NSString(string: "\(matchedRestaurant[2])"))").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
+                    Text("Cuisine: \(NSString(string: "\(matchedRestaurant[2])"))").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
+                    Text("Time: \(NSString(string: "\(matchedRestaurant[5])"))").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
+                    Text("Cost: \(NSString(string: "\(matchedRestaurant[4])"))").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
+                    Text("Health: \(NSString(string: "\(matchedRestaurant[3])"))").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
                     //Text("Dietry Preferences: \(allergy)").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
                 }
                 Spacer()
