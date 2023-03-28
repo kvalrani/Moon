@@ -95,8 +95,14 @@ private extension SessionServiceImpl {
                                                                       gender: gender)
                             }
                         }
+                    
                     let db = Firestore.firestore()
-                    let docRef = db.collection("food").document(uid)
+                    
+                    var docRef = db.collection("food").document("MgRL8nK0JJU2heSwhJnNzwzErTw2")
+                    if(uid == "DycdPZkkteSHXOfZQQ2OCARJOM53" || uid == "KgRL8nK0JJU2heSwhJnNzwzErTw1") {
+                        docRef = db.collection("food").document(uid)
+                    }
+                    
 
                     docRef.getDocument { (document, error) in
                         if let document = document, document.exists {
