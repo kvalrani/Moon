@@ -9,6 +9,7 @@ import Foundation
 import FirebaseAuth
 import FirebaseDatabase
 import Combine
+import FirebaseFirestore
 
 enum SessionState {
     case loggedIn
@@ -27,6 +28,8 @@ protocol SessionService: ObservableObject {
     var userDetails: UserSessionDetails? { get }
     func logout()
 }
+
+
 
 final class SessionServiceImpl: SessionService {
     

@@ -10,6 +10,8 @@ struct PreferencesView: View {
     
     @EnvironmentObject var service: SessionServiceImpl
     
+    
+    
     @State private var health: String = "Any"
     let healthOptions = ["Any", "Healthy", "Medium", "Junk Food"]
     
@@ -71,7 +73,7 @@ struct PreferencesView: View {
                 Spacer()
                 
                 
-                NavigationLink(destination: RecommendationView().environmentObject(service)) {
+                NavigationLink(destination: RecommendationView(health: health, cuisine: cuisine, price: price, time: time, allergy: allergy).environmentObject(service)) {
                     Text("Go!").frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 50)
                         .background(Color(red: 0.37, green: 0.69, blue: 0.46))
                         .foregroundColor(Color.white)
