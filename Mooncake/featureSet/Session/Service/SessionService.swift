@@ -93,6 +93,25 @@ private extension SessionServiceImpl {
                         }
                 }
             }
+        let db = Firestore.firestore()
+        let collectionRef = db.collection("food")
+
+        let query = collectionRef.whereField("price", isEqualTo: 2)
+                                  .whereField("time", isEqualTo: 75)
+                                  .whereField("health", isEqualTo: 2)
+                                  .whereField("cuisine", isEqualTo: "Japanese")
+
+        query.getDocuments { (querySnapshot, error) in
+            if let error = error {
+                print("Error getting documents: \(error)")
+            } else {
+                for document in querySnapshot!.documents {
+                    if let name = document.get("name") as? String {
+                        print(name)
+                    }
+                }
+            }
+        }
     }
 }
 

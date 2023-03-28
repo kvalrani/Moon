@@ -10,9 +10,6 @@ struct RecommendationView: View {
     
     @EnvironmentObject var service: SessionServiceImpl
 
-    @StateObject private var viewModel = RecommendationViewModelImpl(
-    )
-    
     
     let health: String
     let cuisine: String
