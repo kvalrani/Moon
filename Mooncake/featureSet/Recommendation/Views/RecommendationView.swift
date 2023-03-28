@@ -9,6 +9,21 @@ import SwiftUI
 struct RecommendationView: View {
     
     @EnvironmentObject var service: SessionServiceImpl
+
+    
+    let health: String
+    let cuisine: String
+    let price: String
+    let time: String
+    let allergy: String
+    
+    init(health: String, cuisine: String, price: String, time: String, allergy: String) {
+        self.health = health
+        self.cuisine = cuisine
+        self.price = price
+        self.time = time
+        self.allergy = allergy
+    }
     
     var body: some View {
         ZStack {
