@@ -10,6 +10,8 @@ import Foundation
 struct RecommendationView: View {
     
     @EnvironmentObject var service: SessionServiceImpl
+    @State var refreshes = 0
+    @State var showAlert = false
 
       let health: String
       let cuisine: String
@@ -34,7 +36,7 @@ struct RecommendationView: View {
     
     let data = FoodData.foodData
     
-    func findMatchedRestaurant() -> [Any] {
+    func findMatchedRestaurant() -> [[Any]] {
             var matches: [[Any]] = []
             guard let unwrappedData = data else { return [] }
             for (key, entry) in unwrappedData.enumerated() {
@@ -297,26 +299,29 @@ struct RecommendationView: View {
             }
             
         }
+        // return first ranking array
+//        for item in matches {
+//            if let array = item as? [Any] {
+//                // perform operations on the array
+//                if let r = array[0] as? Int {
+//                    if (r == smallestRank) {
+//                        print(array)
+//                        return array
+//                    }
+//                }
+//
+//            }
+//        }
         
-        for item in matches {
-            if let array = item as? [Any] {
-                // perform operations on the array
-                if let r = array[0] as? Int {
-                    if (r == smallestRank) {
-                        print(array)
-                        return array
-                    }
-                }
-                
-            }
-        }
-        return []
+        matches.sort(by: { ($0[0] as! Int) < ($1[0] as! Int) })
+        print("Matches: \(matches)")
+        return matches
                 
     }
     
     var body: some View {
         
-        let matchedRestaurant: [Any] = findMatchedRestaurant()
+        let matchedRestaurant: [[Any]] = findMatchedRestaurant()
 
         ZStack {
             VStack(alignment: .leading
@@ -327,7 +332,7 @@ struct RecommendationView: View {
                 {
                     Spacer()
                     //Kunal and Kush to change name
-                    Text("\(NSString(string: "\(matchedRestaurant[1])")) ")
+                    Text("\(NSString(string: "\(matchedRestaurant[refreshes][1])")) ")
                         .font(.largeTitle)
                         .fontWeight(.bold)
                     Spacer()
@@ -339,10 +344,10 @@ struct RecommendationView: View {
                        spacing: 16) {
                     
                     //Kunal and Kush to change these
-                    Text("Cuisine: \(NSString(string: "\(matchedRestaurant[2])"))").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
-                    Text("Time: \(NSString(string: "\(matchedRestaurant[5])"))").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
-                    Text("Cost: \(NSString(string: "\(matchedRestaurant[4])"))").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
-                    Text("Health: \(NSString(string: "\(matchedRestaurant[3])"))").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
+                    Text("Cuisine: \(NSString(string: "\(matchedRestaurant[refreshes][2])"))").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
+                    Text("Time: \(NSString(string: "\(matchedRestaurant[refreshes][5])")) minutes (average)").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
+                    Text("Cost: \(NSString(string: "\(matchedRestaurant[refreshes][4])"))").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
+                    Text("Health: \(NSString(string: "\(matchedRestaurant[refreshes][3])"))").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
                     //Text("Dietry Preferences: \(allergy)").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
                 }
                 Spacer()
@@ -361,17 +366,31 @@ struct RecommendationView: View {
                 }
                 HStack {
                     
-                    NavigationLink(destination: RecommendationView(health: health, cuisine: cuisine, price: price, time: time, allergy: allergy).environmentObject(service)) {
-                        Text("Give Me Another Option!").frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 50)
-                            .background(.white)
-                            .foregroundColor(Color(red: 0.37, green: 0.69, blue: 0.46))
-                            .border(Color(red: 0.37, green: 0.69, blue: 0.46))
-                            .font(.system(size: 16, weight: .bold))
-                            .cornerRadius(10)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color(red: 0.37, green: 0.69, blue: 0.46), lineWidth: 2)
-                            )
+//                    NavigationLink(destination: RecommendationView(health: health, cuisine: cuisine, price: price, time: time, allergy: allergy).environmentObject(service)) {
+//                        Text("Give Me Another Option!").frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 50)
+//                            .background(.white)
+//                            .foregroundColor(Color(red: 0.37, green: 0.69, blue: 0.46))
+//                            .border(Color(red: 0.37, green: 0.69, blue: 0.46))
+//                            .font(.system(size: 16, weight: .bold))
+//                            .cornerRadius(10)
+//                            .overlay(
+//                                RoundedRectangle(cornerRadius: 10)
+//                                    .stroke(Color(red: 0.37, green: 0.69, blue: 0.46), lineWidth: 2)
+//                            )
+//                    }
+                    
+                    ButtonView(title: "Give Me Another Option!",
+                               background: .white,
+                               foreground: (Color(red: 0.37, green: 0.69, blue: 0.46)),
+                               border: (Color(red: 0.37, green: 0.69, blue: 0.46))) {
+                        if(self.refreshes < (matchedRestaurant.count - 1)) {
+                            self.refreshes = self.refreshes + 1
+                        } else {
+                            self.showAlert = true
+                        }
+                        
+                    }.alert(isPresented: $showAlert) {
+                        Alert(title: Text("Out of Options"), message: Text("This is the final recommendation that fits within your preferences. Try expanding your criteria!"), dismissButton: .default(Text("OK")))
                     }
                 }
                 
