@@ -10,11 +10,8 @@ import Foundation
 struct RecommendationView: View {
     
     @EnvironmentObject var service: SessionServiceImpl
-    
-    
-    let data = FoodData.foodData
 
-    let health: String
+      let health: String
       let cuisine: String
       let price: String
       let time: String
@@ -27,12 +24,33 @@ struct RecommendationView: View {
           self.time = time
           self.allergy = allergy
       }
+    
+    let data = FoodData.foodData
+    
+    func findMatchedRestaurant() -> String? {
+        guard let unwrappedData = data else { return nil }
+        for entry in unwrappedData.values {
+            guard let entryDict = entry as? [String: Any],
+                  let name = entryDict["Name"] as? String,
+                  let entryCuisine = entryDict["Cuisine"] as? String,
+                  let entryHealth = entryDict["Health"] as? Int,
+                  let entryPrice = entryDict["Price"] as? Int,
+                  let entryTime = entryDict["Time"] as? Int
+                  else { continue }
 
+            //Kunal and Kush to wrap this up ....
+            if entryCuisine == cuisine{
+                   print("Match found! Name: \(name), Cuisine: \(cuisine), ")
+            }
+        }
+        return nil
+    }
     
     var body: some View {
-        ZStack {
         
-                        
+        let matchedRestaurant = findMatchedRestaurant()
+
+        ZStack {
             VStack(alignment: .leading
             ) {
     
@@ -40,6 +58,7 @@ struct RecommendationView: View {
                 HStack
                 {
                     Spacer()
+                    //Kunal and Kush to change name
                     Text("Zahav")
                         .font(.largeTitle)
                         .fontWeight(.bold)
@@ -50,6 +69,8 @@ struct RecommendationView: View {
                 
                 VStack(alignment: .leading,
                        spacing: 16) {
+                    
+                    //Kunal and Kush to change these
                     Text("Cuisine: \(cuisine)").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
                     Text("Time: \(time)").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)
                     Text("Cost: \(price)").font(.system(size: 24)).fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(Color.white)

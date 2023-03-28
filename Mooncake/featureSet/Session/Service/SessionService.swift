@@ -103,6 +103,8 @@ private extension SessionServiceImpl {
                             // Extract the data from the document
                             let data = document.data()
                                 FoodData.foodData = data
+                                print("check this")
+                                print(type(of: data))
                                 print(data)
                         } else {
                             //want to get the default document here...
