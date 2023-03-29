@@ -83,9 +83,6 @@ struct RecommendationView: View {
             if time == "<60 minutes" {
                 modTime = 60
             }
-            if time == "60+ minutes" {
-                modTime = 500
-            }
             
             var modHealth:Int = 0
             if health == "Junk Food" {
@@ -250,7 +247,7 @@ struct RecommendationView: View {
                 else {
                     if(modHealth > 0) {
                         if(modTime > 0) {
-                            if ((entryPrice == modPrice) && (entryHealth == modHealth) && (entryTime < modTime) && (entryCuisine == cuisine)) {
+                            if ((entryHealth == modHealth) && (entryTime < modTime) && (entryCuisine == cuisine)) {
                                 print("Match found! Name: \(name), Cuisine: \(cuisine), Price: \(price), Time: \(time) ")
                                 var myArray: [Any] = [rank, name, entryCuisine, modEntryHealth, modEntryPrice, entryTime]
                                 matches.append(myArray)

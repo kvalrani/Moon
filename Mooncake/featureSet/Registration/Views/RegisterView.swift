@@ -51,7 +51,7 @@ struct RegisterView: View {
                     
                     Picker("Gender", selection: $viewModel.newUser.gender) {
                         ForEach(Gender.allCases) { item in
-                            Text(item.rawValue)
+                            Text(item.rawValue.capitalized)
                         }
                     }
                 }

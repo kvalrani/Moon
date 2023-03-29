@@ -5,9 +5,9 @@ import FirebaseDatabase
 
 enum Gender: String, Identifiable, CaseIterable {
     var id: Self { self }
-    case male
-    case female
-    case other
+    case Male
+    case Female
+    case Other
 }
 
 struct RegistrationCredentials {

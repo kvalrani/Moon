@@ -19,8 +19,11 @@ struct LoginView: View {
     var body: some View {
         
         VStack(spacing: 16) {
-            
+            Spacer()
+            Spacer()
+            Image("logo").resizable().scaledToFit()
             VStack(spacing: 16) {
+                
                 
                 InputTextFieldView(text: $viewModel.credentials.email,
                                    placeholder: "Email",
@@ -30,6 +33,7 @@ struct LoginView: View {
                 InputPasswordView(password: $viewModel.credentials.password,
                                   placeholder: "Password",
                                   systemImage: "lock")
+                
             }
             
             
@@ -62,6 +66,10 @@ struct LoginView: View {
                         RegisterView()
                 }
             }
+            Spacer()
+            Spacer()
+            Spacer()
+            Spacer()
         }
         .padding(.horizontal, 15)
         .navigationTitle("Login")

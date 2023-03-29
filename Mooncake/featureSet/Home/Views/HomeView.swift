@@ -15,7 +15,7 @@ struct HomeView: View {
                    ) {
                     Spacer()
                     Spacer()
-                    Spacer()
+                Image("logo").resizable().scaledToFit()
                     Spacer()
                 
                   

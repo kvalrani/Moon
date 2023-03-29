@@ -25,7 +25,7 @@ final class RegistrationViewModelImpl: ObservableObject, RegistrationViewModel {
                                                      firstName: "",
                                                      lastName: "",
                                                      occupation: "",
-                                                     gender: .male)
+                                                     gender: .Male)
     @Published var hasError: Bool = false
 
     private var subscriptions = Set<AnyCancellable>()

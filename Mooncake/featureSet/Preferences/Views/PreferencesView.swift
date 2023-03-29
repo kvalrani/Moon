@@ -16,13 +16,13 @@ struct PreferencesView: View {
     let healthOptions = ["Any", "Healthy", "Junk Food"]
     
     @State private var cuisine: String = "Any"
-    let cuisineOptions = ["Any", "Indian", "Chinese", "Thai", "French", "Mexican", "American", "Japanese", "Ethiopian", "Other"]
+    let cuisineOptions = ["Any", "Indian", "Chinese", "Thai", "French", "Mexican", "American", "Japanese", "Ethiopian"]
     
     @State private var price = "Any"
     let priceOptions = ["Any", "$", "$$", "$$$", "$$$$"]
     
     @State private var time = "Any"
-        let timeOptions = ["Any", "<15 minutes", "<30 minutes", "<60 minutes", "60+ minutes"]
+        let timeOptions = ["Any", "<15 minutes", "<30 minutes", "<60 minutes"]
     
     @State private var allergy = "None"
     let allergyOptions = ["None", "Vegan", "Vegetarian", "Pescatarian"]
@@ -62,12 +62,12 @@ struct PreferencesView: View {
                         }
                     }
                    
-                    Text("Dietary Preferences:")
-                    Picker("Options", selection: $allergy) {
-                        ForEach(allergyOptions, id: \.self) { option in
-                            Text(option)
-                        }
-                    }
+//                    Text("Dietary Preferences:")
+//                    Picker("Options", selection: $allergy) {
+//                        ForEach(allergyOptions, id: \.self) { option in
+//                            Text(option)
+//                        }
+//                    }
                     //Text("Selected Option: //\(selectedAllergyOptions)")
                 }
                 Spacer()
